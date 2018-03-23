@@ -2,50 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome to Wakanda!!</title>
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" href=".\assets\material-kit.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 
-{% comment %}<nav class="navbar navbar-default navbar-expand-lg" role="navigation-demo">
-                        <div class="container">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-translate">
-                                <a class="navbar-brand" href="/presentation.html">Wakanda</a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                    <span class="navbar-toggler-icon"></span>
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                            </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a href="#pablo" class="nav-link">
-                                            Text to Speech
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#pablo" class="nav-link">
-                                            Speech to text
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#pablo" class="btn btn-rose btn-raised btn-round " data-toggle="dropdown">
-                                            Register
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.navbar-collapse -->
-                        </div>
-                        <!-- /.container-->
-                    </nav>{% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
 
-<h1>Hello there!!</h1>
+
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h4 class="text-white">Collapsed content</h4>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="/presentation.html">Wakanda</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" href="#navbarToggleExternalContent" data-toggle="collapse"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item">
+                    <a href="#pablo" class="nav-link mx-2">
+                        Sentiment Analysis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pablo" class="nav-link mx-2">
+                        Text to Speech
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pablo" class="nav-link mx-2">
+                        Speech to text
+                    </a>
+                </li>
+                <li class="nav-item m-x-4">
+                    <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
+                        Sign in
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
+                        Sign up
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-->
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Welcome to Wakanda!</h1>
+        <p>It is a simple website for text processing.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Sentiment Analysis</h2>
+            <p>the process of computationally identifying and categorizing opinions expressed in a piece of text, especially in order to determine whether the writer's attitude towards a particular topic, product, etc. is positive, negative, or neutral.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Text to Speech</h2>
+            <p>Text-to-speech (TTS) is an assistive technology that reads digital text aloud. It’s sometimes called “read aloud” technology. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Speech to Text</h2>
+            <p>Speech recognition is the inter-disciplinary sub-field of computational linguistics that develops methodologies and technologies that enables the recognition and translation of spoken language into text by computers.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+    <hr>
+
+</div> <!-- /container -->
+
+<footer class="container">
+      <p>&copy; Wakanda 2017-2018</p>
+</footer>
+
 </body>
 </html>
