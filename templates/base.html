@@ -26,10 +26,8 @@
         </div>
 
         <div class="navbar-translate">
-            <div class="container">
-                <img src="{% static "assets/logo-full-size.png" %}" alt="logo" >
-            </div>
-            <a class="navbar-brand" href="/presentation.html">Wakanda</a>
+
+            <a class="navbar-brand" href="#">Wakanda</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" href="#navbarToggleExternalContent" data-toggle="collapse"></span>
             </button>
@@ -43,12 +41,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#pablo" class="nav-link mx-2">
+                    <a href="tts.html" class="nav-link mx-2">
                         Text to Speech
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#pablo" class="nav-link mx-2">
+                    <a href="stt.html" class="nav-link mx-2">
                         Speech to text
                     </a>
                 </li>
@@ -82,6 +80,13 @@
     </div>
     <!-- /.container-->
 </nav>
+
+{% block content %}
+{% endblock %}
+<hr>
+<footer class="container">
+      <p>&copy; WAKANDA 2017-2018</p>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Speech to text</h1>
+            <form>
+                <div class="form-group">
+                    <div class="input-group mb-3 col-md-3">
+
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" accept="audio/*">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col"></div>
+                <p><a class="btn btn-primary btn-lg col-12" href="#" role="button">Submit</a></p>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

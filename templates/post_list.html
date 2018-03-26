@@ -1,69 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to Wakanda!!</title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-
-
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h4 class="text-white">Collapsed content</h4>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-        </div>
-
-        <div class="navbar-translate">
-            <a class="navbar-brand" href="/presentation.html">Wakanda</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" href="#navbarToggleExternalContent" data-toggle="collapse"></span>
-            </button>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a href="#pablo" class="nav-link mx-2">
-                        Sentiment Analysis
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pablo" class="nav-link mx-2">
-                        Text to Speech
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pablo" class="nav-link mx-2">
-                        Speech to text
-                    </a>
-                </li>
-                <li class="nav-item m-x-4">
-                    <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
-                        Sign in
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
-                        Sign up
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-->
-</nav>
-
+{% extends 'templates/base.html' %}
+{% block content %}
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">Welcome to Wakanda!</h1>
@@ -91,13 +29,7 @@
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
-    <hr>
+
 
 </div> <!-- /container -->
-
-<footer class="container">
-      <p>&copy; Company 2017-2018</p>
-    </footer>
-
-</body>
-</html>
+{% endblock %}

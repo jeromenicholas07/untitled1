@@ -25,6 +25,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('', include('blog.urls')),
-    #url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    #url('^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
