@@ -11,7 +11,7 @@
 
 </head>
 <body>
-{% load staticfiles %}
+{% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="navigation">
     <div class="container">
@@ -26,8 +26,8 @@
         </div>
 
         <div class="navbar-translate">
-
-            <a class="navbar-brand" href="#">Wakanda</a>
+            <img  src="{% static 'images/logo-white-sm.png' %}" style="width: 35px; height: 35px ; padding-bottom: 7px; padding-right: 0px;margin-left: 0px">
+            <a class="navbar-brand" href="#" style="padding-left: 10px;margin-right: 0px">Wakanda</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" href="#navbarToggleExternalContent" data-toggle="collapse"></span>
             </button>

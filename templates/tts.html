@@ -2,18 +2,17 @@
 
 {% block content %}
 
-    <div class="jumbotron">
+    <div class="jumbotron" >
         <div class="container">
             <h1 class="display-3">Text to speech</h1>
             <form action="/" method="post">
                 <div class="form-group">
                     <div class="col"></div>
-                    <div class="col">
-
-                        <input type="text" class="form-control col" style="height: 100px" id="inputText" name="inputText" placeholder="Enter text..." value="{{ txt }}">
-
-
-                    </div>
+                        <div class="col">
+                            {% csrf_token %}
+                            <!-- <input type="text" class="form-control col" style="height: 100px" id="inputText" name="inputText" placeholder="Enter text..." value="{{ txt }}">-->
+                            {{ form.as_p }}
+                        </div>
                     <div class="col"></div>
                 </div>
                 <div class="row">
