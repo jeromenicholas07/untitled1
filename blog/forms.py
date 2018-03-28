@@ -2,5 +2,5 @@ from django import forms
 
 
 class ttsForm(forms.Form):
-    txt = forms.CharField(label="Enter text", max_length=500, widget=forms.TextInput(attrs={'class': 'form-control col', 'style': 'height: 100px', 'id': 'txt'}))
+    txt = forms.CharField(label="", max_length=500, widget=forms.Textarea(attrs={'class': 'form-control justify-content-start', 'style': 'height: 100px; padding-bottom: 60px; margin-botton: 0', 'id': 'txt', 'placeholder': 'Enter text here.'}))
 

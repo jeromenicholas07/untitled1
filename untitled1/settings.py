@@ -124,3 +124,4 @@ STATIC_ROOT = '/static/'
 STATICFILES_DIRS = [
     os.path.join(STATIC_ROOT, 'assets'),   # or whatever you named it
 ]
+
