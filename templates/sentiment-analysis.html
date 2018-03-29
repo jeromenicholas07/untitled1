@@ -1,10 +1,11 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
-{% load static %}
+    {% load static %}
+
     <div class="jumbotron" >
         <div class="container">
-            <h1 class="display-3">Text to speech</h1>
+            <h1 class="display-3">Sentiment Analysis</h1>
             <form method="post">
                 <div class="form-group" style="margin-top: 30px">
 
@@ -30,16 +31,5 @@
 
         </div>
     </div>
-
-    <script>
-    function play() {
-        var audi = document.getElementById('audi')
-        audi.src = '{% static 'output/out1.wav' %}'
-        audi.load()
-
-
-    }
-    </script>
-
 
 {% endblock %}

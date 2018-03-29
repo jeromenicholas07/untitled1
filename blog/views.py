@@ -34,14 +34,15 @@ def process_tts(request):
             path = 'blog/static/output/out1.wav'
             with open(path, 'wb+') as audio_file:
                 audio_file.write(text_to_speech.synthesize(text=txt, accept='audio/wav', voice="en-US_AllisonVoice").content)
-                return render(request, 'templates/tts.html', {'form': form, 'audi': audio_file.read()})
+
+                return render(request, 'templates/tts.html', {'form': form, 'audi': audio_file})
 
             #ttsWatson = TtsWatson('6424de64-aefa-417c-ae39-5ba79801f371', 'iCdJQmgYmOWD', 'en-US_AllisonVoice')
             #ttsWatson.play(str(txt))
 
 
             with open(path, 'rb') as fsock:
-
+                # Enabling this block will make the file available for download when submit is clicked
                 response = HttpResponse(fsock.read(), {'form': form, 'audi': 'blog/static/output/out1.wav'})
                 response['mime_type'] = 'audio/mpeg'
                 response['Content-Disposition'] = 'attachment; filename="out1.wav"'
