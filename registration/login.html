@@ -1,7 +1,7 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -16,35 +16,48 @@
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/floating-labels/floating-labels.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-  {% load static %}
-    <form method="post" class="form-signin">
-        {% csrf_token %}
-      <div class="text-center mb-4">
-          <a href="/"><img class="mb-4" src="{% static 'images/logo-sm.png' %}" alt="Wakanda" width="72" height="72"></a>
+<body>
+{% load static %}
+<form method="post" class="form-signin">
+    {% csrf_token %}
+    <div class="text-center mb-4">
+        <a href="/"><img class="mb-4" src="{% static 'images/logo-sm.png' %}" alt="Wakanda" width="72" height="72"></a>
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-{#        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>#}
-      </div>
-
-      <div class="form-label-group">
-        <input type="text" id="id_username" class="form-control" placeholder="Email address" required autofocus name="username">
+        {#        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>#}
+    </div>
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="form-label-group">
+        <input type="text" id="id_username" class="form-control" placeholder="username" required autofocus name="username">
         <label for="id_username">Username</label>
-      </div>
-      <div class="form-label-group">
+    </div>
+    <div class="form-label-group">
         <input type="password" id="id_password" class="form-control" placeholder="Password" required name="password">
         <label for="id_password">Password</label>
-      </div>
+    </div>
 
-      <div class="checkbox mb-3">
+    <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me"> Remember me
         </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p>Don't have an account? <a href="/signup" >Sign up</a></p>
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
-    </form>
-  </body>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p>Don't have an account? <a href="{% url 'signup' %}" >Sign up</a></p>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+</form>
+</body>
 </html>

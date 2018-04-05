@@ -39,17 +39,17 @@
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav justify-content-end"  id="tabList">
                 <li class="nav-item" id="sentimentAnalysis">
-                    <a href="#pablo" class="nav-link mx-2">
+                    <a href="{% url 'sentiment-analysis' %}" class="nav-link mx-2">
                         Sentiment Analysis
                     </a>
                 </li>
                 <li class="nav-item" id="tts">
-                    <a href="/tts" class="nav-link mx-2">
+                    <a href="{% url 'tts' %}" class="nav-link mx-2">
                         Text to Speech
                     </a>
                 </li>
                 <li class="nav-item" id="stt">
-                    <a href="stt.html" class="nav-link mx-2">
+                    <a href="{% url 'stt' %}" class="nav-link mx-2">
                         Speech to text
                     </a>
                 </li>
@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item m-x-4">
-                        <a href="accounts/signup" class="btn btn-outline-secondary mx-2" data-toggle="">
+                        <a href="{% url 'signup' %}" class="btn btn-outline-secondary mx-2" data-toggle="">
                             Sign up
                         </a>
                     </li>

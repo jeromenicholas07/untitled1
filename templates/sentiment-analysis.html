@@ -2,25 +2,73 @@
 
 {% block content %}
     {% load static %}
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function () {
 
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+
+                title:{
+
+                },
+                axisX:{
+                    interval: 1
+                },
+                axisY2:{
+                    minimum : 0,
+                    maximum: 1,
+                    gridColor: "rgba(1,77,101,.1)",
+
+                },
+                data: [{
+                    type: "bar",
+                    name: "companies",
+                    axisYType: "secondary",
+                    color: "#014D65",
+                    dataPoints: [
+
+                        {y: {{ emotions.anger }}, label: "anger"},
+                        {y: {{ emotions.fear }}, label: "fear"},
+                        {y: {{ emotions.disgust }}, label: "disgust"},
+                        {y: {{ emotions.sadness }}, label: "sadness"},
+                        {y: {{ emotions.joy }}, label: "joy"},
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
     <div class="jumbotron" >
         <div class="container">
             <h1 class="display-3">Sentiment Analysis</h1>
             <form method="post">
-                <div class="form-group" style="margin-top: 30px">
+                <div class="row">
+                    {% csrf_token %}
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 25px">
 
-                    <div class="col-md-12" style="padding-bottom: 0;margin-bottom: -49px">
-                        {% csrf_token %}
-                        <!-- <input type="text" class="form-control col" style="height: 100px" id="inputText" name="inputText" placeholder="Enter text..." value="{{ txt }}">-->
                         {{ form.as_p }}
                     </div>
-                    <div class="col-md-12" style="margin: 0;padding-left: 16px ;padding-right: 16px">
-                        <audio id="audi" controls style="width: inherit; padding-top: 0;margin-top: 0">
-                            <source src="{% static 'output/out1.wav' %}" type="audio/wav" id="audio_source">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
+                    <div class="col-md-6" id="chartContainer" style="height: 250px; padding-top: 25px;padding-left: 0">
 
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col"></div>

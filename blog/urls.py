@@ -5,9 +5,11 @@ from django.urls import path,include
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
-    url(r'^tts', views.process_tts, name='tts'),
-    url(r'^stt.html', views.stt, name='stt'),
+
+    path('tts', views.process_tts, name='tts'),
+    path('stt', views.stt, name='stt'),
+    path('sentiment-analysis', views.sentimentAnalysis, name='sentiment-analysis'),
     # url(r'^login', auth_views.login, name='login'),
-    # url(r'^signup', auth_views.auth_logout, name='signup'),
+    path('accounts/signup', views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
