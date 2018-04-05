@@ -6,8 +6,11 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -26,49 +29,52 @@
         </div>
 
         <div class="navbar-translate">
-            <img  src="{% static 'images/logo-white-sm.png' %}" style="width: 35px; height: 35px ; padding-bottom: 7px; padding-right: 0px;margin-left: 0px">
-            <a class="navbar-brand" href="#" style="padding-left: 10px;margin-right: 0px">Wakanda</a>
+            <img  src="{% static 'images/logo-white-sm.png' %}" style="height: 35px;margin-top: -10px">
+            <a class="navbar-brand" href="/" style="padding-left: 10px;margin-right: 0px">Wakanda</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" href="#navbarToggleExternalContent" data-toggle="collapse"></span>
             </button>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
+            <ul class="navbar-nav justify-content-end"  id="tabList">
+                <li class="nav-item" id="sentimentAnalysis">
                     <a href="#pablo" class="nav-link mx-2">
                         Sentiment Analysis
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="tts.html" class="nav-link mx-2">
+                <li class="nav-item" id="tts">
+                    <a href="/tts" class="nav-link mx-2">
                         Text to Speech
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="stt">
                     <a href="stt.html" class="nav-link mx-2">
                         Speech to text
                     </a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item m-x-4">
-                        <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
-                            Sign in
+                    <li class="nav-item dropdown" style="padding-left: 15px">
+                        <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: ">
+                            <img src="{% static 'images/def_dp.png' %}" class="img-rounded" style="height: 37px;padding: 2px">
                         </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown1">
+                            <p class="dropdown-header"> Logged in as {{ user.username }}</p>
+                            <a class="dropdown-item" href="/">Profile</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
                     </li>
-                    <li class="nav-item m-x-4">
-                        <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
-                            Sign up
-                        </a>
-                    </li>
+
+
                 {% else %}
                     <li class="nav-item m-x-4">
-                        <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
+                        <a href="{% url 'login' %}" class="btn btn-outline-secondary mx-2" data-toggle="">
                             Sign in
                         </a>
                     </li>
                     <li class="nav-item m-x-4">
-                        <a href="#pablo" class="btn btn-outline-secondary mx-2" data-toggle="dropdown">
+                        <a href="accounts/signup" class="btn btn-outline-secondary mx-2" data-toggle="">
                             Sign up
                         </a>
                     </li>
@@ -84,9 +90,11 @@
 {% block content %}
 {% endblock %}
 <hr>
-<footer class="container">
-      <p>&copy; WAKANDA 2017-2018</p>
-    </footer>
+<footer class="footer" style="height: 50px;">
+    <div class="container">
+        <span class="text-muted">&copy; WAKANDA 2017-2018</span>
+    </div>
+</footer>
 
 </body>
 </html>

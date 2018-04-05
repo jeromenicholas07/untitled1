@@ -2,6 +2,15 @@
 
 {% block content %}
 {% load static %}
+
+    <script>
+        bt = document.getElementById('tts');
+
+        current = document.getElementsByClassName('active');
+        current[0].className = current[0].className.replace(" active", "");
+
+        bt.className += " active"
+    </script>
     <div class="jumbotron" >
         <div class="container">
             <h1 class="display-3">Text to speech</h1>
@@ -14,7 +23,7 @@
                         {{ form.as_p }}
                     </div>
                     <div class="col-md-12" style="margin: 0;padding-left: 16px ;padding-right: 16px">
-                        <audio id="audi" controls style="width: inherit; padding-top: 0;margin-top: 0" >
+                        <audio id="audi" controls style="width: inherit; padding-top: 0;margin-top: 0" preload="none">
                             <source src="{% static 'output/out1.wav' %}" type="audio/wav" id="audio_source">
                             Your browser does not support the audio element.
                         </audio>

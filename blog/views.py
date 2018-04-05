@@ -34,7 +34,7 @@ def process_tts(request):
             path = 'blog/static/output/out1.wav'
             with open(path, 'wb+') as audio_file:
                 audio_file.write(text_to_speech.synthesize(text=txt, accept='audio/wav', voice="en-US_AllisonVoice").content)
-                request.sess
+
                 return render(request, 'templates/tts.html', {'form': form, 'audi': audio_file})
 
             #ttsWatson = TtsWatson('6424de64-aefa-417c-ae39-5ba79801f371', 'iCdJQmgYmOWD', 'en-US_AllisonVoice')
@@ -50,3 +50,9 @@ def process_tts(request):
     else:
         form = ttsForm()
     return render(request, 'templates/tts.html', {'form': form, 'audi': ''})
+
+def login(request):
+    return render(request, 'templates/../registration/login.html')
+
+def signup(request):
+    return render(request, 'templates/../registration/signup.html')
