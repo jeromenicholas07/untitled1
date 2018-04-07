@@ -3,29 +3,33 @@
 {% block content %}
     {% load static %}
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    {#    <script src="{% static 'admin/js/canvasjs.min.js' %}"></script>#}
+    {#    <script src=""></script>#}
     <script>
         window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
-
+                backgroundColor : "transparent",
                 title:{
 
                 },
                 axisX:{
-                    interval: 1
+
+                    interval: 1,
+                    labelFontSize: 15,
                 },
                 axisY2:{
                     minimum : 0,
+                    labelFontSize: 10,
                     maximum: 1,
                     gridColor: "rgba(1,77,101,.1)",
 
                 },
                 data: [{
                     type: "bar",
-                    name: "companies",
                     axisYType: "secondary",
-                    color: "#014D65",
+                    color: "#2c3f65",
                     dataPoints: [
 
                         {y: {{ emotions.anger }}, label: "anger"},
@@ -46,33 +50,30 @@
             <form method="post">
                 <div class="row">
                     {% csrf_token %}
-                        {% if form.errors %}
-                            {% for field in form %}
-                                {% for error in field.errors %}
-                                    <div class="alert alert-danger">
-                                        <strong>{{ error|escape }}</strong>
-                                    </div>
-                                {% endfor %}
-                            {% endfor %}
-                            {% for error in form.non_field_errors %}
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
                                 <div class="alert alert-danger">
                                     <strong>{{ error|escape }}</strong>
                                 </div>
                             {% endfor %}
-                        {% endif %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="padding-top: 25px">
-
                         {{ form.as_p }}
                     </div>
-                    <div class="col-md-6" id="chartContainer" style="height: 250px; padding-top: 25px;padding-left: 0">
-
-                    </div>
+                    <div class="col-md-6" id="chartContainer" style="height: 250px; padding-top: 25px;padding-left: 0"> </div>
                 </div>
-                <div class="row">
+                <div class="row" style="padding-top: 25px">
                     <div class="col"></div>
-                    <input type="submit" class="btn btn-primary btn-lg col-4" value="Submit">
+                        <input type="submit" class="btn btn-primary btn-lg col-4" value="Submit">
                     <div class="col"></div>
                 </div>
             </form>
