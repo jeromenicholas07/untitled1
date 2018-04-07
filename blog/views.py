@@ -13,7 +13,7 @@ import os
 from django.forms import ValidationError
 from .models import Post
 from .forms import ttsForm, sentiForm
-
+from untitled1.settings import BASE_DIR
 
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
@@ -36,7 +36,7 @@ def process_tts(request):
             text_to_speech = TextToSpeechV1(username='ab79ea31-5f07-4c63-94ec-82b526b9fcd8', password='ZCE3iPsVwLTc')
 
             # op = text_to_speech.synthesize(text='Hello world!', accept='audio/wav', voice="en-US_AllisonVoice")
-            path = 'blog/static/output/out1.wav'
+            path = './blog/static/output/out1.wav'
             with open(path, 'wb+') as audio_file:
                 audio_file.write(text_to_speech.synthesize(text=txt, accept='audio/wav', voice="en-US_AllisonVoice").content)
 
