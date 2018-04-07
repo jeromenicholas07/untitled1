@@ -8,7 +8,7 @@ from watson_developer_cloud import NaturalLanguageUnderstandingV1
 from watson_developer_cloud.natural_language_understanding_v1 \
   import Features, EntitiesOptions, KeywordsOptions, SentimentOptions, EmotionOptions
 
-from os.path import join, dirname
+
 import os
 from django.forms import ValidationError
 from .models import Post
@@ -36,7 +36,11 @@ def process_tts(request):
             text_to_speech = TextToSpeechV1(username='ab79ea31-5f07-4c63-94ec-82b526b9fcd8', password='ZCE3iPsVwLTc')
 
             # op = text_to_speech.synthesize(text='Hello world!', accept='audio/wav', voice="en-US_AllisonVoice")
-            path = os.path.join(BASE_DIR, 'blog/static/output/out1.wav')
+            thisFolder = os.path.dirname(os.path.abspath(__file__))
+            # my_file = os.path.join(THIS_FOLDER, 'myfile.txt')
+            # path = os.path.join(thisFolder, 'blog/static/output/out1.wav')
+
+            path = os.path.join(thisFolder, 'static\\output\\out1.wav')
             with open(path, 'wb+') as audio_file:
                 audio_file.write(text_to_speech.synthesize(text=txt, accept='audio/wav', voice="en-US_AllisonVoice").content)
 
